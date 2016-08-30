@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+	font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -69,6 +69,14 @@ mark {
 }
 small {
   font-size: 80%;
+}
+Home-PageTutorial
+{
+	width: 360px;
+	height: 220px;
+	background-color: yellow;
+	box-shadow: 10px 10px 5px #888888; 
+	margin-left:10px;
 }
 sub,
 sup {
