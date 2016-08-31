@@ -1,0 +1,51 @@
+@isTest(SeeAllData=true)
+public class ProposalExt_Test {
+    
+    static testMethod void test_proposal(){
+        
+       Account accc=new account();
+        accc.name='abc';
+        accc.type='other';
+        insert accc;
+        system.assertNotEquals(accc.id,null);
+        
+     
+        
+        Opportunity Opp=new opportunity();
+        Opp.Name='opid';
+        Opp.AccountId=accc.id;
+        Opp.Transaction_Type__c='Other';
+        Opp.CloseDate=system.today();
+        Opp.Amount=2322;
+        Opp.StageName='Sean Maguire';
+        opp.LeadSource='Other';
+        //Opp.Net_Effective_Rent__c=234;
+        Opp.ROIC__c=12;
+        insert Opp;
+        System.assertNotEquals(opp.id, null);
+        
+       
+        
+        Suite__c ss=[select id,Name from Suite__c limit 1];
+        
+        Apttus_Proposal__Proposal__c app=new Apttus_Proposal__Proposal__c();
+        app.Apttus_Proposal__Account__c=accc.id;
+        app.Apttus_Proposal__Opportunity__c=Opp.id;
+        app.Initial_Submitter_Comment__c='kloudrac';
+        app.Apttus_Proposal__Primary__c=false;
+        app.Suite__c=ss.id;
+        insert app;
+        System.assertNotEquals(app.id, null);
+             
+        ApexPages.StandardController sc = new ApexPages.StandardController(app);
+        ProposalExt obj=new ProposalExt(sc);
+        obj.ProposalCount=2;
+            obj.Save();
+        
+        
+        
+        
+        
+    }
+
+}
